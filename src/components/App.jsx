@@ -1,7 +1,13 @@
+import Header from "./Header"
+import Builder from "./Builder"
+
 function App() {
 
   return (
-    <>Hello World</>
+    <>
+      <Header></Header>
+      <Builder></Builder>
+    </>
   )
 }
 
