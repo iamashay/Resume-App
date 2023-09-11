@@ -26,9 +26,16 @@ function Volunteering(){
     
 }
 
-function Option() {
+import '../styles/Option.css'
+
+function Option({setResume, resume}) {
+    const handleName = (value) => {
+        setResume((currentRes) => ({...currentRes, basicDetails: {...currentRes.basicDetails, name: value}}))
+    }
     return (
-        <>
+        <div id="option">
+            <input onChange={(e) => handleName(e.target.value)} />
+            <p>{resume.basicDetails.name}</p>
             <BasicDetails></BasicDetails>
             <Objective></Objective>
             <Experience></Experience>
@@ -36,7 +43,7 @@ function Option() {
             <Skills></Skills>
             <Projects></Projects>
             <Volunteering></Volunteering>
-        </>
+        </div>
     )
 }
 

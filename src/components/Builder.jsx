@@ -1,29 +1,30 @@
 import Preview from "./Preview"
 import Option from "./Option"
 import { useState } from "react"
-
+import { PDFViewer } from '@react-pdf/renderer';
+import '../styles/Builder.css'
 const Resume = {
     edu: [{
-        clgName: 'Dr. B.C. Roy Engineering College',
+        clgName: 'Dr. College',
         eduName: 'Bachelor of Commerece',
-        location: 'Durgapur',
+        location: 'Manali',
         startYear: 2021,
         endYear: 2023,
         isPresent: false,
     }],
     exp: [{
-        companyName: 'LabVantage',
-        roleName: 'Associate Solution Engineer',
+        companyName: 'LocuSoft',
+        roleName: 'Software Engineer',
         location: 'Kolkata',
         startDate: +new Date(),
         endDate: null,
         isPresent: true
     }],
     basicDetails: {
-        name: 'Ashay Jaiswal',
-        addr: 'Bokaro, Jharkhand',
-        phone: '8709776795',
-        mail: 'ashaywin@gmail.com',
+        name: 'Joe Doe',
+        addr: 'Paharganj, Delhi',
+        phone: '6353453453',
+        mail: 'dfgdfhdgdfg@gmail.com',
         objective: 'An inspiring software aspirant',
         linkedin: 'https://linkedin.com'
     },
@@ -34,14 +35,20 @@ const Resume = {
     }],
 }
 
+
+
 function Builder() {
     const [resume, setResume] = useState(Resume)
     console.log(resume)
+
     return (
-        <>
-            <Option onChange={setResume}></Option>
-            <Preview data={resume}></Preview>
-        </>
+        <div id="builder"> 
+            <Option id="option" setResume={setResume} resume={resume}></Option>
+            <PDFViewer className="pdfviewer" showToolbar={false} css="border: none;">
+                <Preview data={resume}></Preview>
+            </PDFViewer>
+            
+        </div>
     )
 }
 

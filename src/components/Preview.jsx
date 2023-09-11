@@ -1,5 +1,7 @@
 import '../styles/Preview.css'
+import { Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
 
+/*
 function Preview({data}) {
     const basicDetails = data.basicDetails
     const eduDetails = data.edu
@@ -38,7 +40,7 @@ function Preview({data}) {
                     </>
             )}
 
-            {data.skills}
+            {skills}
             {projects.map((project)=> 
                 <>
                 {project.name}
@@ -47,6 +49,26 @@ function Preview({data}) {
             )}
 
         </>
+    )
+}
+*/
+
+const styles = StyleSheet.create({
+    firstName: {fontSize: 60, alignSelf: 'center'}
+  });
+
+function Preview ({data}) {
+    return (
+    <Document>
+        <Page size="A4" scale = '100'>
+        <View style={styles.section}>
+            <Text style={styles.firstName}>{data.basicDetails.name}</Text>
+        </View>
+        <View style={styles.section}>
+            <Text>Section #2</Text>
+        </View>
+        </Page>
+    </Document>
     )
 }
 

@@ -1,0 +1,11 @@
+#builder {
+    display: flex;
+    flex-direction: row;
+}
+
+.pdfviewer {
+    flex: 1;
+    height: 95vh;
+    border: 1px solid #eee;
+    box-shadow: none;
+}
