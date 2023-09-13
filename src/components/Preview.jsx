@@ -1,75 +1,27 @@
 import '../styles/Preview.css'
-import { Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
+import { usePDF } from '@react-pdf/renderer';
+import { Document, pdfjs, Page  } from 'react-pdf'
+import Resume from './Resume';
 
-/*
-function Preview({data}) {
-    const basicDetails = data.basicDetails
-    const eduDetails = data.edu
-    const expDetails = data.exp
-    const skills = data.skills
-    const projects = data.projects
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
+
+
+function Preview({data}){
+    const [instance, updateInstance] = usePDF({ document: Resume({data}) });
+    if (instance.loading) return <div>Loading ...</div>;
+
+    if (instance.error) return <div>Something went wrong: {error}</div>;
+    console.log(instance)
     return (
-        <>
-            {basicDetails.name}
-            <br></br>
-            {basicDetails.phone}
-            <br></br>
-            {basicDetails.mail}
-            <br></br>
-            {basicDetails.addr}
-            <br></br>
-            {basicDetails.linkedin}
-
-            {eduDetails.map((edu)=> 
-                (
-                    <>
-                    {edu.clgName}
-                    {edu.eduName}
-                    {edu.location}
-                    {edu.startYear + '-'+ edu.endYear}
-                    </>
-                )
-            )}
-
-            {expDetails.map((exp)=> 
-                    <>
-                    {exp.companyName}
-                    {exp.roleName}
-                    {exp.location}
-                    {exp.startDate + '-' + exp.isPresent ? 'Currently Pursuing' : exp.endDate}
-                    </>
-            )}
-
-            {skills}
-            {projects.map((project)=> 
-                <>
-                {project.name}
-                {project.desc}
-                </>
-            )}
-
-        </>
-    )
+      <>
+      <Document file={instance.url}>
+        <Page pageNumber={1}  />
+      </Document>
+      <a href={instance.url}>Download</a>
+      </>
+    );
 }
-*/
 
-const styles = StyleSheet.create({
-    firstName: {fontSize: 60, alignSelf: 'center'}
-  });
 
-function Preview ({data}) {
-    return (
-    <Document>
-        <Page size="A4" scale = '100'>
-        <View style={styles.section}>
-            <Text style={styles.firstName}>{data.basicDetails.name}</Text>
-        </View>
-        <View style={styles.section}>
-            <Text>Section #2</Text>
-        </View>
-        </Page>
-    </Document>
-    )
-}
 
 export default Preview

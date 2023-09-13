@@ -1,7 +1,6 @@
 import Preview from "./Preview"
 import Option from "./Option"
 import { useState } from "react"
-import { PDFViewer } from '@react-pdf/renderer';
 import '../styles/Builder.css'
 const Resume = {
     edu: [{
@@ -44,9 +43,7 @@ function Builder() {
     return (
         <div id="builder"> 
             <Option id="option" setResume={setResume} resume={resume}></Option>
-            <PDFViewer className="pdfviewer" showToolbar={false} css="border: none;">
-                <Preview data={resume}></Preview>
-            </PDFViewer>
+            <Preview data={resume}></Preview>
             
         </div>
     )
