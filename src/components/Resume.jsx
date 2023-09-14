@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
 function Resume ({data}) {
     return (
     <Document>
-        <Page size="A4" scale = '100'>
+        <Page size="A4" >
         <View style={styles.section}>
             <Text style={styles.firstName}>{data.basicDetails.name}</Text>
         </View>
