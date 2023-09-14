@@ -17,9 +17,8 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
     return (
       <>
       <Document file={instance.url}>
-        <Page pageNumber={1}  />
+        <Page pageNumber={1} height={700} width={500}  />
       </Document>
-      <a href={instance.url}>Download</a>
       </>
     );
 }
