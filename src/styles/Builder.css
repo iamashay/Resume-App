@@ -1,11 +1,6 @@
 #builder {
     display: flex;
     flex-direction: row;
+    margin: 0 5px 0 5px;
 }
 
-.pdfviewer {
-    flex: 1;
-    height: 95vh;
-    border: 1px solid #eee;
-    box-shadow: none;
-}

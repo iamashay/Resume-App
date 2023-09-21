@@ -4,17 +4,21 @@ import { useState } from "react"
 import '../styles/Builder.css'
 const Resume = {
     edu: [{
+        id: '45fvdgdg',
         clgName: 'Dr. College',
         eduName: 'Bachelor of Commerece',
         location: 'Manali',
         startYear: 2021,
         endYear: 2023,
         isPresent: false,
+        score: '9 CGPA'
     }],
     exp: [{
+        id: '2342sd',
         companyName: 'LocuSoft',
         roleName: 'Software Engineer',
         location: 'Kolkata',
+        descArr: [{id: '324dfg', text: 'Being trained on Java, SQL and JavaScript'}, {id: 'dff3', text: 'Top performer'}],
         startDate: +new Date(),
         endDate: null,
         isPresent: true
@@ -27,10 +31,12 @@ const Resume = {
         objective: 'An inspiring software aspirant',
         linkedin: 'https://linkedin.com'
     },
-    skills: ['git', 'html'],
+    skills: 'git, html',
     projects: [{
+        id: 'sadfsdf3',
         name: 'Starlight',
-        desc: 'WOOOOo!'
+        desc: 'WOOOOo!',
+        link: 'http://asdsd.com'
     }],
 }
 
@@ -42,7 +48,7 @@ function Builder() {
 
     return (
         <div id="builder"> 
-            <Option id="option" setResume={setResume} resume={resume}></Option>
+            <Option setResume={setResume} resume={resume}></Option>
             <Preview data={resume}></Preview>
             
         </div>

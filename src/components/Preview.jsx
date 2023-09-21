@@ -12,14 +12,14 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
     if (instance.loading) return <div>Loading ...</div>;
 
     if (instance.error) return <div>Something went wrong: {error}</div>;
-    const test = instance.blob.text()
+    const test = instance
     console.log(test)
     return (
-      <>
-      <Document file={instance.url}>
-        <Page pageNumber={1} height={700} width={500}  />
-      </Document>
-      </>
+      <div id='pdf-container'>
+        <Document file={instance.url}>
+          <Page size="A4" pageNumber={1} className='pdf'   />
+        </Document>
+      </div>
     );
 }
 
