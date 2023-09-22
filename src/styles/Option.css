@@ -1,4 +1,27 @@
 #option {
-   background-color: aqua; 
    flex: 1;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.option-container {
+   background-color: #eee;
+   width: 80%;
+}
+
+.option-head {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   padding: 10px;
+   background: #d4e09b;
+   color: #386641;
+   font-size: calc(12px + 1vw);
+}
+
+.option-form {
+   background: #8ECAE6;
+   height: 400px;
+
 }

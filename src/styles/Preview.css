@@ -1,5 +1,4 @@
-.pdf-container {
-    flex: 1; /* Takes up 50% of the width */
-    overflow-y: auto; /* Show scrollbar if content goes beyond viewport height */
-    border-left: 1px solid #e0e0e0; /* Optional: to differentiate between form and PDF */
+#pdf-container {
+    border: 1px solid #b0b0b0;
+    box-shadow: 0px 0px 6px 2px #00000040;
 }

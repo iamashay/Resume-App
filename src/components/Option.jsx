@@ -36,6 +36,21 @@ function Option({setResume, resume}) {
         <div id="option">
             <input onChange={(e) => handleName(e.target.value)} />
             <p>{resume.basicDetails.name}</p>
+            <div className='option-container'>
+                <div className='option-head'>
+                    <div className='option-title'>
+                        {'Basic Details'}
+                    </div>
+                    <div className='option-minimize'>
+                        ^
+                    </div>
+                </div>
+                <div className='option-form'>
+                    <form>
+                        
+                    </form>
+                </div>
+            </div>
             <BasicDetails></BasicDetails>
             <Objective></Objective>
             <Experience></Experience>
