@@ -7,7 +7,7 @@
 
 .option-container {
    background-color: #eee;
-   width: 80%;
+   width: 65%;
 }
 
 .option-head {
@@ -18,10 +18,70 @@
    background: #d4e09b;
    color: #386641;
    font-size: calc(12px + 1vw);
+   align-items: center;
 }
 
 .option-form {
-   background: #8ECAE6;
-   height: 400px;
-
+   background: #f2e8cf;
+   padding: 10px;
 }
+
+
+.arrow {
+   border: solid #386641;
+   border-width: 0 3px 3px 0;
+   display: inline-block;
+   padding: 3px;
+   cursor: pointer;
+ }
+
+.arrow-up {
+   transform: rotate(-135deg);
+   -webkit-transform: rotate(-135deg);
+}
+
+.option-form .value-wrapper {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 20px;  
+}
+
+.option-container .input-container {
+   display: flex;
+   flex-direction: column;
+}
+
+.form-footer {
+   display: flex;
+   justify-content: right;
+}
+
+.form-footer button {
+   cursor: pointer;
+   margin: 5px;
+}
+
+button {
+   background-color: #4CAF50; /* Green */
+   border: none;
+   color: white;
+   padding: 7px 25px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 16px;
+   margin: 4px 2px;
+   transition-duration: 0.4s;
+   cursor: pointer;
+ }
+
+ .btn-green {
+   background-color: white; 
+   color: black; 
+   border: 2px solid #4CAF50;
+ }
+
+ .btn-green:hover {
+   background-color: #4CAF50;
+   color: white;
+ }

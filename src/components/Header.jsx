@@ -1,7 +1,9 @@
+import logo from '../assets/logo.png'
+import '../styles/Header.css'
 function Header() {
     return (
         <header>
-            <div id="logo">Resume Maker</div>
+            <div id="logo"><img src={logo}></img></div>
         </header>
     )
 }
