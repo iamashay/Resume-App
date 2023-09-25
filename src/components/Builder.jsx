@@ -1,8 +1,11 @@
 import Preview from "./Preview"
 import Option from "./Option"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import '../styles/Builder.css'
-const Resume = {
+import Resume from './Resume';
+import { usePDF } from '@react-pdf/renderer';
+
+const resumeData = {
     edu: [{
         id: '45fvdgdg',
         clgName: 'Dr. College',
@@ -43,13 +46,24 @@ const Resume = {
 
 
 function Builder() {
-    const [resume, setResume] = useState(Resume)
-    console.log(resume)
+    const [resume, setResume] = useState(resumeData)
+    const [instance, updateInstance] = usePDF({ document: <Resume resume={resume} /> });
+    
+    const handleResume = (data) => {
+        setResume((currentResume) => ({...currentResume, ...data}))
+    }
+    useEffect(() => {
+        updateInstance();
+    }, [resume]);
+
+    useEffect(() => {
+        console.log('Instance updated ', instance)
+    }, [instance])
 
     return (
         <div id="builder"> 
-            <Option setResume={setResume} resume={resume}></Option>
-            <Preview data={resume}></Preview>
+            <Option handleResume={handleResume} resume={resume}></Option>
+            <Preview resumeInstance={instance}></Preview>
             
         </div>
     )

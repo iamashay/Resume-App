@@ -23,9 +23,13 @@
 
 .option-form {
    background: #f2e8cf;
-   padding: 10px;
+
 }
 
+
+.option-form form {
+   padding: 10px;
+}
 
 .arrow {
    border: solid #386641;
@@ -33,11 +37,12 @@
    display: inline-block;
    padding: 3px;
    cursor: pointer;
- }
-
-.arrow-up {
+   transition: transform 0.3s ease-in-out;
    transform: rotate(-135deg);
-   -webkit-transform: rotate(-135deg);
+}
+
+.arrow-down {
+   transform: rotate(44deg);
 }
 
 .option-form .value-wrapper {
@@ -85,3 +90,17 @@ button {
    background-color: #4CAF50;
    color: white;
  }
+
+ .input-container input {
+   width: 100%;
+ }
+
+.minimize .option-form {
+   max-height: 0;
+ }
+
+.option-form {
+   overflow: hidden;
+   transition: max-height 0.3s ease-in-out;
+   max-height: 600px;
+}

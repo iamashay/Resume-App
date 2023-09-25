@@ -21,28 +21,29 @@ const styles = StyleSheet.create({
     title: {fontFamily: 'Open Sans', fontSize: '16px' }
 });
 
-function Resume ({data}) {
+function Resume ({resume}) {
+    console.log(resume)
     return (
     <Document>
         <Page size="A4">
             <View style={styles.myMargin}>
                 <View style={[styles.section]}>
-                    <Text style={styles.firstName}>{data.basicDetails.name}</Text>
+                    <Text style={styles.firstName}>{resume.basicDetails.name}</Text>
                     <View>
-                        <Text style={styles.alignCenter}>{data.basicDetails.phone} | {data.basicDetails.addr}</Text>
-                        <Text style={styles.alignCenter}><Link style={styles.link} src={'mailto:'+data.basicDetails.mail}>{data.basicDetails.mail}</Link> | <Link style={styles.link} src={data.basicDetails.linkedin}>{data.basicDetails.linkedin}</Link></Text>
+                        <Text style={styles.alignCenter}>{resume.basicDetails.phone} | {resume.basicDetails.addr}</Text>
+                        <Text style={styles.alignCenter}><Link style={styles.link} src={'mailto:'+resume.basicDetails.mail}>{resume.basicDetails.mail}</Link> | <Link style={styles.link} src={resume.basicDetails.linkedin}>{resume.basicDetails.linkedin}</Link></Text>
                     </View>
                 </View>
                 <View style={styles.section}>
                     <Text style={styles.heading}>Objective</Text>
                     <Line style={styles.line} />
-                    <Text>{data.basicDetails.objective}</Text>
+                    <Text>{resume.basicDetails.objective}</Text>
                 </View>
                 <View style={styles.section}>
                     <Text style={styles.heading}>Experience</Text>
                     <Line style={styles.line} />
                     <View>
-                        {data.exp.map((exp) => (
+                        {resume.exp.map((exp) => (
                             <View key={exp.id}>
                                 <View style={styles.arrangeInlineSpace}>
                                     <View>
@@ -69,7 +70,7 @@ function Resume ({data}) {
                     <Text style={styles.heading}>Education</Text>
                     <Line style={styles.line} />
                     <View>
-                        {data.edu.map((edu) => (
+                        {resume.edu.map((edu) => (
                             <View key={edu.id}>
                                 <View style={styles.arrangeInlineSpace}>
                                     <Text>{edu.eduName + ', '+edu.clgName}</Text>
@@ -85,7 +86,7 @@ function Resume ({data}) {
                     <Text style={styles.heading}>Skills</Text>
                     <Line style={styles.line} />
                     <View>
-                        <Text>{data.skills}</Text>
+                        <Text>{resume.skills}</Text>
                     </View>
                 </View>
 
@@ -93,7 +94,7 @@ function Resume ({data}) {
                     <Text style={styles.heading}>Projects</Text>
                     <Line style={styles.line} />
                     <View>
-                        {data.projects.map((project) => (
+                        {resume.projects.map((project) => (
                             <View style={styles.arrangeInline} key={project.id}>
                                 <Text style={styles.title}>{project.name+' : '}</Text>
                                 <Text>{project.desc} </Text>
