@@ -15,7 +15,7 @@ function BasicDetails({processForm, handleResume}){
                         <div className='value-wrapper'>
                             <div className='input-container'>
                                 <label htmlFor="name">Name:</label>
-                                <input id='name' name='name' required></input> 
+                                <input id='name' name='name' ></input> 
                             </div>
                             <div className='input-container'>
                                 <label htmlFor="addr">Location:</label>
@@ -23,19 +23,19 @@ function BasicDetails({processForm, handleResume}){
                             </div>
                             <div className='input-container'>
                                 <label htmlFor="mail">Email Address</label>
-                                <input id='mail' name='mail' required></input> 
+                                <input id='mail' name='mail' ></input> 
                             </div> 
                             <div className='input-container'>
                                 <label htmlFor="phone">Phone</label>
-                                <input id='phone' name='phone' required></input> 
+                                <input id='phone' name='phone' ></input> 
                             </div>      
                             <div className='input-container'>
                                 <label htmlFor="linkedin">LinkedIn</label>
-                                <input id='linkedin' name='linkedin' required></input> 
+                                <input id='linkedin' name='linkedin' ></input> 
                             </div>
                             <div className='input-container'>
                                 <label htmlFor="objective">Objective</label>
-                                <input id='objective' name='objective' required></input> 
+                                <input id='objective' name='objective' ></input> 
                             </div>      
                         </div>
                         <div className='form-footer'><button className='btn-green' type='submit' name='submit' value={'Basic Details'}>Save</button></div>             

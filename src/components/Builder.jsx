@@ -47,23 +47,21 @@ const resumeData = {
 
 function Builder() {
     const [resume, setResume] = useState(resumeData)
-    const [instance, updateInstance] = usePDF({ document: <Resume resume={resume} /> });
+    //const [instance, updateInstance] = usePDF({ document: <Resume resume={resume} /> });
     
     const handleResume = (data) => {
         setResume((currentResume) => ({...currentResume, ...data}))
     }
     useEffect(() => {
-        updateInstance();
+        //updateInstance();
+        console.log(resume)
     }, [resume]);
 
-    useEffect(() => {
-        console.log('Instance updated ', instance)
-    }, [instance])
 
     return (
         <div id="builder"> 
             <Option handleResume={handleResume} resume={resume}></Option>
-            <Preview resumeInstance={instance}></Preview>
+            <Preview resume={resume}></Preview>
             
         </div>
     )
