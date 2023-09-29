@@ -8,6 +8,6 @@
 #pdf-container .react-pdf__Document {
     border: 1px solid #b0b0b0;
     box-shadow: 0px 0px 6px 2px #00000040;
-
+    height: fit-content;
 }
 

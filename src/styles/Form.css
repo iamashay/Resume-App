@@ -1,0 +1,20 @@
+.item-view {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.item-primary, .item-secondary {
+    display: flex;
+    flex-direction: column;
+}
+
+.delete-icon {
+    opacity: 40%;
+    transition: 200ms ease-in-out;
+    cursor: pointer;
+}
+
+.delete-icon:hover {
+    opacity: 100%;
+}

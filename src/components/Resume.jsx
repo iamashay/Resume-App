@@ -56,8 +56,8 @@ function Resume ({resume}) {
                                     </View>
                                 </View>
                                 <View>
-                                    {exp.descArr.map((desc) => (
-                                        <ListItem key={desc.id}>
+                                    {exp.descArr.map((desc, index) => (
+                                        <ListItem key={index}>
                                             {desc.text}
                                         </ListItem>
                                     ))}

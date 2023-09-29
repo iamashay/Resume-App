@@ -21,7 +21,7 @@ const resumeData = {
         companyName: 'LocuSoft',
         roleName: 'Software Engineer',
         location: 'Kolkata',
-        descArr: [{id: '324dfg', text: 'Being trained on Java, SQL and JavaScript'}, {id: 'dff3', text: 'Top performer'}],
+        descArr: ['asdasd', 'asd33234234'],
         startDate: +new Date(),
         endDate: null,
         isPresent: true
