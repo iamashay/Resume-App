@@ -2,31 +2,40 @@ import '../styles/Preview.css'
 import { Page, Text, View, Document, Font, StyleSheet, Link, Line } from '@react-pdf/renderer';
 import ListItem from './ListItem';
 Font.register({
-    family: 'Open Sans',
+    family: 'helvetica',
     fonts: [
-      { src: 'https://cdn.jsdelivr.net/npm/open-sans-all@0.1.3/fonts/open-sans-regular.ttf' },
-      { src: 'https://cdn.jsdelivr.net/npm/open-sans-all@0.1.3/fonts/open-sans-600.ttf', fontWeight: 600 }
+      { src: 'https://cdn.jsdelivr.net/npm/helvetica-original@1.0.0/Light/Helvetica-Light.ttf' },
+      { src: 'https://cdn.jsdelivr.net/npm/helvetica-original@1.0.0/Bold/Helvetica-Bold.ttf', fontWeight: '800' },
     ]
   })
 const styles = StyleSheet.create({
     firstName: {fontSize: '22px', alignSelf: 'center'},
     section: {fontSize: '14px', marginBottom: 20},
-    heading: {fontSize: '18px'},
-    myMargin: {margin: '20 5 1 5'},
-    line: { borderBottom: 1, marginTop: 5, marginBottom: 5 },
+    heading: {fontSize: '16px', fontWeight: 'bold'},
+    pageMargin: {margin: '20 8 1 8'},
+    line: { borderBottom: 1, marginTop: 3, marginBottom: 5 },
     link: {textDecoration: 'none'},
     alignCenter: {alignSelf: 'center'},
     arrangeInlineSpace: {display: 'flex', flexDirection: 'row', justifyContent: 'space-between'},
     arrangeInline: {display: 'flex', flexDirection: 'row', alignItems: 'baseline' },
-    title: {fontFamily: 'Open Sans', fontSize: '16px' }
+    title: {fontFamily: 'helvetica', fontWeight: 'bold'},
+    alignItemsRight: {alignItems: 'flex-end'},
+    customFont: {fontFamily: 'helvetica'},
+    sectionBodyMargin: {margin: '0 5px 0 5px'},
+    arrItem: {margin: '0 0 5px'}
 });
+
+function formatDate(date) {
+    const options = { year: 'numeric', month: 'short' };
+    return new Date(date).toLocaleString('en-US', options)
+}
 
 function Resume ({resume}) {
     console.log(resume)
     return (
     <Document>
         <Page size="A4">
-            <View style={styles.myMargin}>
+            <View style={[styles.pageMargin, styles.customFont]}>
                 <View style={[styles.section]}>
                     <Text style={styles.firstName}>{resume.basicDetails.name}</Text>
                     <View>
@@ -37,21 +46,22 @@ function Resume ({resume}) {
                 <View style={styles.section}>
                     <Text style={styles.heading}>Objective</Text>
                     <Line style={styles.line} />
-                    <Text>{resume.basicDetails.objective}</Text>
+                    <Text style={styles.sectionBodyMargin}>{resume.basicDetails.objective}</Text>
                 </View>
                 <View style={styles.section}>
                     <Text style={styles.heading}>Experience</Text>
                     <Line style={styles.line} />
-                    <View>
+                    <View style={styles.sectionBodyMargin}>
                         {resume.exp.map((exp) => (
-                            <View key={exp.id}>
+
+                            <View style={styles.arrItem} key={exp.id}>
                                 <View style={styles.arrangeInlineSpace}>
                                     <View>
-                                        <Text>{exp.roleName}</Text>
+                                        <Text style={styles.title}>{exp.roleName}</Text>
                                         <Text>{exp.companyName}</Text>
                                     </View>
-                                    <View>
-                                        <Text>{exp.isPresent ? 'Present' : new Date(exp.startDate)}</Text>
+                                    <View style={styles.alignItemsRight}>
+                                        <Text>{`${formatDate(exp.startDate)} - ${exp.isPresent ? 'Present' : formatDate(exp.endDate)}`}</Text>
                                         <Text>{exp.location}</Text>
                                     </View>
                                 </View>
@@ -69,11 +79,14 @@ function Resume ({resume}) {
                 <View style={styles.section}>
                     <Text style={styles.heading}>Education</Text>
                     <Line style={styles.line} />
-                    <View>
+                    <View style={styles.sectionBodyMargin}>
                         {resume.edu.map((edu) => (
-                            <View key={edu.id}>
+                            <View style={styles.arrItem} key={edu.id}>
                                 <View style={styles.arrangeInlineSpace}>
-                                    <Text>{edu.eduName + ', '+edu.clgName}</Text>
+                                    <View style={styles.arrangeInline}>
+                                        <Text style={styles.title}>{edu.eduName}</Text>
+                                        <Text>, {edu.clgName}</Text>
+                                    </View>
                                     <Text>{edu.startYear + '-' + edu.endYear}</Text>
                                 </View>
                                 <Text>{edu.score}</Text>
@@ -85,7 +98,7 @@ function Resume ({resume}) {
                 <View style={styles.section}>
                     <Text style={styles.heading}>Skills</Text>
                     <Line style={styles.line} />
-                    <View>
+                    <View style={styles.sectionBodyMargin}>
                         <Text>{resume.skills}</Text>
                     </View>
                 </View>
@@ -93,9 +106,9 @@ function Resume ({resume}) {
                 <View style={styles.section}>
                     <Text style={styles.heading}>Projects</Text>
                     <Line style={styles.line} />
-                    <View>
+                    <View style={styles.sectionBodyMargin}>
                         {resume.projects.map((project) => (
-                            <View style={styles.arrangeInline} key={project.id}>
+                            <View style={[styles.arrangeInline, styles.arrItem]} key={project.id}>
                                 <Text style={styles.title}>{project.name+' : '}</Text>
                                 <Text>{project.desc} </Text>
                                 {project.link && <Link style={styles.link} src={project.link}>Project Link</Link>}

@@ -1,8 +1,9 @@
+import Resume from "./Resume";
 
-export const processForm = (event, type, handleResume, arrData, setArrData) => {
-    event.preventDefault();
+export const processForm = ({e, type, handleResume, arrData, setArrData}) => {
+    e.preventDefault();
     const prepareData = {}
-    const form = event.target
+    const form = e.target
     if (type === 'basicDetails'){
         prepareData[type] = {}
         for (const elm of form ){
@@ -16,7 +17,7 @@ export const processForm = (event, type, handleResume, arrData, setArrData) => {
         for (const elm of form ){
             if (elm.type === 'submit') continue
             if (elm.name === 'descArr') {
-                customExp[elm.name] = elm.value.split()
+                customExp[elm.name] = elm.value.split('\n')
                 continue
             }
             customExp[elm.name] = elm.value
@@ -65,5 +66,6 @@ export const processForm = (event, type, handleResume, arrData, setArrData) => {
         })
         return false
     }
+    console.log('process form data', prepareData)
     handleResume(prepareData)
 }

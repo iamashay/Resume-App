@@ -48,21 +48,21 @@ const resumeData = {
 function Builder() {
     const [resume, setResume] = useState(resumeData)
     //const [instance, updateInstance] = usePDF({ document: <Resume resume={resume} /> });
-    
-    const handleResume = (data) => {
-        setResume((currentResume) => ({...currentResume, ...data}))
-    }
     const [instance, updateInstance] = usePDF({ document: <Resume resume={resume} /> });
-    useEffect(()=> {
-      console.log('Instance updated: ', instance)
-      updateInstance(<Resume resume={resume} />)
-    }, [resume])
-  
+    const handleResume = (data) => {
+        setResume((currentResume) => {
+            console.log(data)
+            const newResume = {...currentResume, ...data}
+            updateInstance(<Resume resume={newResume} />)
+            console.log(newResume)
+            return newResume
+        })
+    }
 
 
     return (
         <div id="builder"> 
-            <Option instance={instance} handleResume={handleResume} resume={resume}></Option>
+            <Option instance={instance} updateInstance={updateInstance} handleResume={handleResume}  resume={resume}></Option>
             <Preview instance={instance} resume={resume}></Preview>
         </div>
     )
