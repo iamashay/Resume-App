@@ -42,80 +42,89 @@ function Resume ({resume}) {
                         <Text style={styles.alignCenter}><Link style={styles.link} src={'mailto:'+resume.basicDetails.mail}>{resume.basicDetails.mail}</Link> | <Link style={styles.link} src={resume.basicDetails.linkedin}>{resume.basicDetails.linkedin}</Link></Text>
                     </View>
                 </View>
-                <View style={styles.section}>
-                    <Text style={styles.heading}>Objective</Text>
-                    <Line style={styles.line} />
-                    <Text style={styles.sectionBodyMargin}>{resume.basicDetails.objective}</Text>
-                </View>
-                <View style={styles.section}>
-                    <Text style={styles.heading}>Experience</Text>
-                    <Line style={styles.line} />
-                    <View style={styles.sectionBodyMargin}>
-                        {resume.exp.map((exp) => (
+                { resume?.basicDetails?.objective &&
+                    <View style={styles.section}>
+                        <Text style={styles.heading}>Objective</Text>
+                        <Line style={styles.line} />
+                        <Text style={styles.sectionBodyMargin}>{resume.basicDetails.objective}</Text>
+                    </View>
+                }
+                { resume?.exp?.length &&
+                    <View style={styles.section}>
+                        <Text style={styles.heading}>Experience</Text>
+                        <Line style={styles.line} />
+                        <View style={styles.sectionBodyMargin}>
+                            {resume.exp.map((exp) => (
 
-                            <View style={styles.arrItem} key={exp.id}>
-                                <View style={styles.arrangeInlineSpace}>
+                                <View style={styles.arrItem} key={exp.id}>
+                                    <View style={styles.arrangeInlineSpace}>
+                                        <View>
+                                            <Text style={styles.title}>{exp.roleName}</Text>
+                                            <Text>{exp.companyName}</Text>
+                                        </View>
+                                        <View style={styles.alignItemsRight}>
+                                            <Text>{`${formatDate(exp.startDate)} - ${exp.isPresent ? 'Present' : formatDate(exp.endDate)}`}</Text>
+                                            <Text>{exp.location}</Text>
+                                        </View>
+                                    </View>
                                     <View>
-                                        <Text style={styles.title}>{exp.roleName}</Text>
-                                        <Text>{exp.companyName}</Text>
-                                    </View>
-                                    <View style={styles.alignItemsRight}>
-                                        <Text>{`${formatDate(exp.startDate)} - ${exp.isPresent ? 'Present' : formatDate(exp.endDate)}`}</Text>
-                                        <Text>{exp.location}</Text>
+                                        {exp.descArr.map((desc, index) => (
+                                            <ListItem key={index}>
+                                                {desc.text}
+                                            </ListItem>
+                                        ))}
                                     </View>
                                 </View>
-                                <View>
-                                    {exp.descArr.map((desc, index) => (
-                                        <ListItem key={index}>
-                                            {desc.text}
-                                        </ListItem>
-                                    ))}
-                                </View>
-                            </View>
-                        ))}
+                            ))}
+                        </View>
                     </View>
-                </View>
-                <View style={styles.section}>
-                    <Text style={styles.heading}>Education</Text>
-                    <Line style={styles.line} />
-                    <View style={styles.sectionBodyMargin}>
-                        {resume.edu.map((edu) => (
-                            <View style={styles.arrItem} key={edu.id}>
-                                <View style={styles.arrangeInlineSpace}>
-                                    <View style={styles.arrangeInline}>
-                                        <Text style={styles.title}>{edu.eduName}</Text>
-                                        <Text>, {edu.clgName}</Text>
+                }
+                { resume?.edu?.length &&
+                    <View style={styles.section}>
+                        <Text style={styles.heading}>Education</Text>
+                        <Line style={styles.line} />
+                        <View style={styles.sectionBodyMargin}>
+                            {resume.edu.map((edu) => (
+                                <View style={styles.arrItem} key={edu.id}>
+                                    <View style={styles.arrangeInlineSpace}>
+                                        <View style={styles.arrangeInline}>
+                                            <Text style={styles.title}>{edu.eduName}</Text>
+                                            <Text>, {edu.clgName}</Text>
+                                        </View>
+                                        <Text>{edu.startYear + '-' + edu.endYear}</Text>
                                     </View>
-                                    <Text>{edu.startYear + '-' + edu.endYear}</Text>
+                                    <Text>{edu.score}</Text>
                                 </View>
-                                <Text>{edu.score}</Text>
-                            </View>
-                        ))}
+                            ))}
+                        </View>
                     </View>
-                </View>
-
-                <View style={styles.section}>
-                    <Text style={styles.heading}>Skills</Text>
-                    <Line style={styles.line} />
-                    <View style={styles.sectionBodyMargin}>
-                        <Text>{resume.skills}</Text>
+                }
+                { resume?.skills &&
+                    <View style={styles.section}>
+                        <Text style={styles.heading}>Skills</Text>
+                        <Line style={styles.line} />
+                        <View style={styles.sectionBodyMargin}>
+                            <Text>{resume.skills}</Text>
+                        </View>
                     </View>
-                </View>
-
-                <View style={styles.section}>
-                    <Text style={styles.heading}>Projects</Text>
-                    <Line style={styles.line} />
-                    <View style={styles.sectionBodyMargin}>
-                        {resume.projects.map((project) => (
-                            <View style={[styles.arrangeInline, styles.arrItem]} key={project.id}>
-                                <Text style={styles.title}>{project.name+' : '}</Text>
-                                <Text>{project.desc} </Text>
-                                {project.link && <Link style={styles.link} src={project.link}>Project Link</Link>}
-                            </View>
-                        ))} 
+                }
+                { resume?.projects?.length &&
+                    <View style={styles.section}>
+                        <Text style={styles.heading}>Projects</Text>
+                        <Line style={styles.line} />
+                        <View style={styles.sectionBodyMargin}>
+                            {resume.projects.map((project) => (
+                                <View style={[styles.arrangeInline, styles.arrItem]} key={project.id}>
+                                    <Text style={styles.title}>{project.name+' : '}</Text>
+                                    <Text>{project.desc} </Text>
+                                    {project.link && <Link style={styles.link} src={project.link}>Project Link</Link>}
+                                </View>
+                            ))} 
+                        </View>
                     </View>
-                </View>
+                }
             </View>
+                        
         </Page>
     </Document>
     )

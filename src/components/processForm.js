@@ -28,6 +28,8 @@ export const processForm = ({e, type, handleResume, arrData, setArrData}) => {
             handleResume(prepareData)
             return [...currentData, customExp]
         })
+
+        form.reset()
         return false
     } else if (type === 'edu'){
         console.log(arrData)
@@ -43,6 +45,7 @@ export const processForm = ({e, type, handleResume, arrData, setArrData}) => {
             handleResume(prepareData)
             return [...currentData, customExp]
         })
+        form.reset()
         return false
     } else if (type === 'skills'){
         for (const elm of form ){
@@ -64,6 +67,7 @@ export const processForm = ({e, type, handleResume, arrData, setArrData}) => {
             handleResume(prepareData)
             return [...currentData, customExp]
         })
+        form.reset()
         return false
     }
     console.log('process form data', prepareData)
