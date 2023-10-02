@@ -17,7 +17,7 @@ function Preview({instance}){
   return (
     <div className='pdf-container'>
       <Document file={instance.url}>
-        <Page size="A4" pageNumber={1} className='pdf'   />
+        <Page  size="A4" pageNumber={1} className='pdf'   />
       </Document>
     </div>
   );

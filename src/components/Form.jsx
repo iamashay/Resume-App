@@ -102,11 +102,7 @@ const ExpForm = ({optionId, optionName, setArrData, handleResume}) => {
                 <div className='input-container'>
                     <label htmlFor="location">Location</label>
                     <input id='location' name='location' ></input> 
-                </div> 
-                <div className='input-container'>
-                    <label htmlFor="descArr">Description</label>
-                    <textarea id='descArr'  name='descArr' ></textarea> 
-                </div>      
+                </div>     
                 <div className='input-container'>
                     <label htmlFor="startDate">Start Date</label>
                     <input id='startDate' type='date' name='startDate' ></input> 
@@ -116,9 +112,13 @@ const ExpForm = ({optionId, optionName, setArrData, handleResume}) => {
                     <input id='endDate' type='date' name='endDate' disabled={isPresent} ></input> 
                 </div>
                 <div className='input-container'>
-                    <label htmlFor="isPresent">Is Present</label>
+                    <label htmlFor="isPresent">Is Present?</label>
                     <input id='isPresent' checked={isPresent} type='checkbox' name='isPresent' onChange={handleIsPresent} ></input> 
-                </div>        
+                </div>
+                <div className='input-container'>
+                    <label htmlFor="descArr">Description</label>
+                    <textarea id='descArr'  name='descArr' ></textarea> 
+                </div>          
             </div>
             <div className='form-footer'><button className='btn-green' type='submit' name='submit' value={optionName}>Save</button></div>             
     </form>)
@@ -148,7 +148,7 @@ export function Experience({handleResume}){
                 <div className='option-form'>
 
                     <div className='display-option-content'>
-                    { console.log(expItems)}{
+                    {
                     expItems.map((expItem)=>
                             <ExpView key={expItem.id} data={expItem} handleExpDelete={handleExpDelete}></ExpView>
                         )
@@ -205,7 +205,7 @@ const EduForm = ({optionId, optionName, setArrData, handleResume}) => {
                     <input id='endDate' type='number' min='2000' max='3000' name='endDate' disabled={isPresent} ></input> 
                 </div>
                 <div className='input-container'>
-                    <label htmlFor="isPresent">Is Present</label>
+                    <label htmlFor="isPresent">Is Present?</label>
                     <input id='isPresent' checked={isPresent} type='checkbox' name='isPresent' onChange={handleIsPresent} ></input> 
                 </div>        
             </div>

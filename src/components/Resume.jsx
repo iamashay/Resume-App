@@ -31,7 +31,6 @@ function formatDate(date) {
 }
 
 function Resume ({resume}) {
-    console.log(resume)
     return (
     <Document>
         <Page size="A4">
