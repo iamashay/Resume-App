@@ -121,3 +121,8 @@ button {
 label[for="isPresent"] {
    align-self: center;
 }
+
+textarea {
+   width: calc(180px + 4vw);
+   height: calc(100px + 1vw);
+}
