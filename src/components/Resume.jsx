@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     heading: {fontSize: '16px', fontWeight: 'bold'},
     pageMargin: {margin: '20 8 1 8'},
     line: { borderBottom: 1, marginTop: 3, marginBottom: 5 },
-    link: {textDecoration: 'none'},
+    link: {textDecoration: 'none', fontSize: '12px'},
     alignCenter: {alignSelf: 'center'},
     arrangeInlineSpace: {display: 'flex', flexDirection: 'row', justifyContent: 'space-between'},
     arrangeInline: {display: 'flex', flexDirection: 'row', alignItems: 'baseline' },
@@ -70,7 +70,7 @@ function Resume ({resume}) {
                                     <View>
                                         {exp.descArr.map((desc, index) => (
                                             <ListItem key={index}>
-                                                {desc.text}
+                                                {desc}
                                             </ListItem>
                                         ))}
                                     </View>
@@ -114,10 +114,9 @@ function Resume ({resume}) {
                         <Line style={styles.line} />
                         <View style={styles.sectionBodyMargin}>
                             {resume.projects.map((project) => (
-                                <View style={[styles.arrangeInline, styles.arrItem]} key={project.id}>
-                                    <Text style={styles.title}>{project.name+' : '}</Text>
-                                    <Text>{project.desc} </Text>
-                                    {project.link && <Link style={styles.link} src={project.link}>Project Link</Link>}
+                                <View style={[ styles.arrItem]} key={project.id}>
+                                    <Text style={styles.title}>{project.name+' : '} <Text style={{fontWeight: 0}}>{project.desc} {project.link && <Link style={styles.link} src={project.link}>Project Link</Link>}</Text>    </Text>
+                                    
                                 </View>
                             ))} 
                         </View>

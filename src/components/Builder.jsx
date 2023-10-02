@@ -8,23 +8,44 @@ import { usePDF } from '@react-pdf/renderer';
 const resumeData = {
     edu: [{
         id: '45fvdgdg',
-        clgName: 'Dr. College',
-        eduName: 'Bachelor of Commerece',
+        clgName: 'XYZ International College',
+        eduName: 'Bachelor of Technology',
         location: 'Manali',
         startYear: 2021,
         endYear: 2023,
         isPresent: false,
         score: '9 CGPA'
-    }],
+    }, 
+    {
+        id: '345f',
+        clgName: 'XYZ Public School',
+        eduName: 'Class 12',
+        location: 'Manali',
+        startYear: 2020,
+        endYear: 2021,
+        isPresent: false,
+        score: '90 %'
+    }
+    ],
     exp: [{
         id: '2342sd',
         companyName: 'LocuSoft',
         roleName: 'Software Engineer',
-        location: 'Kolkata',
-        descArr: ['asdasd', 'asd33234234'],
-        startDate: +new Date(),
+        location: 'New Delhi',
+        descArr: ['Raised sales by 50% of the product', 'Built chat system with Generative AI'],
+        startDate: '01/12/2022',
         endDate: null,
         isPresent: true
+    },
+    {
+        id: '23d42sd',
+        companyName: 'EY',
+        roleName: 'Software Analyst',
+        location: 'New Delhi',
+        descArr: ['Enhanced performance and execution time', 'Built chat system with Generative AI'],
+        startDate: '10/02/2021',
+        endDate: '01/12/2022',
+        isPresent: false
     }],
     basicDetails: {
         name: 'Joe Doe',
@@ -34,11 +55,11 @@ const resumeData = {
         objective: 'An inspiring software aspirant',
         linkedin: 'https://linkedin.com'
     },
-    skills: 'git, html',
+    skills: 'JavaScript, NodeJS, ReactJS, HTML, CSS, PHP, Java',
     projects: [{
         id: 'sadfsdf3',
-        name: 'Starlight',
-        desc: 'WOOOOo!',
+        name: 'Resume Maker',
+        desc: 'An application where you could create your resume in a popular layout. Built in ReactJS.',
         link: 'http://asdsd.com'
     }],
 }
