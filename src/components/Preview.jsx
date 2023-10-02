@@ -8,22 +8,14 @@ import { useEffect } from 'react';
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 
-function Preview({resume}){
-  const [instance, updateInstance] = usePDF({ document: <Resume resume={resume} /> });
-  useEffect(()=> {
-    console.log('Instance updated: ', instance)
-    updateInstance(<Resume resume={resume} />)
-  }, [resume])
+function Preview({instance}){
 
-  if (instance.loading) return <div id='pdf-container'>Loading ...</div>;
+  if (instance.loading) return <div className='pdf-container'>Loading ...</div>;
 
-  if (instance.error) return <div id='pdf-container'>Something went wrong: {error}</div>;
+  if (instance.error) return <div className='pdf-container'>Something went wrong: {error}</div>;
 
   return (
-    <div id='pdf-container'>
-      <div className='pdf-options'>
-        <div className='download'></div>
-      </div>
+    <div className='pdf-container'>
       <Document file={instance.url}>
         <Page size="A4" pageNumber={1} className='pdf'   />
       </Document>

@@ -1,13 +1,18 @@
-#pdf-container {
+.pdf-container {
+    overflow: hidden;
+    transition: width 0.3s ease-in-out;
     width: 50%;
-    display: flex;
-    justify-content: flex-start;
+    align-self: center;
 }
 
 
-#pdf-container .react-pdf__Document {
+.pdf-container .react-pdf__Document {
     border: 1px solid #b0b0b0;
     box-shadow: 0px 0px 6px 2px #00000040;
     height: fit-content;
+    width: fit-content;
 }
 
+.hide-pdf {
+    width: 0%;
+}

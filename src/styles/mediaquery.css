@@ -1,0 +1,12 @@
+@media only screen and (max-width: 1200px) {
+    #builder {
+        flex-direction: column;
+    }
+    .pdf-container {
+        width: fit-content;
+        align-self: center;
+    }
+    .hide-pdf {
+        display: none;
+    }   
+}
