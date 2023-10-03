@@ -47,7 +47,7 @@ export function BasicDetails({handleResume, updateInstance}){
                             </div>
                             <div className='input-container'>
                                 <label htmlFor="mail">Email Address</label>
-                                <input id='mail'  required name='mail' ></input> 
+                                <input id='mail'  required type='email' name='mail' ></input> 
                             </div> 
                             <div className='input-container'>
                                 <label htmlFor="phone">Phone</label>
@@ -55,7 +55,7 @@ export function BasicDetails({handleResume, updateInstance}){
                             </div>      
                             <div className='input-container'>
                                 <label htmlFor="linkedin">LinkedIn</label>
-                                <input id='linkedin' required name='linkedin' ></input> 
+                                <input id='linkedin' required  name='linkedin' ></input> 
                             </div>
                             <div className='input-container'>
                                 <label htmlFor="objective">Objective</label>
