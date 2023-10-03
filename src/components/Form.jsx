@@ -39,27 +39,27 @@ export function BasicDetails({handleResume, updateInstance}){
                         <div className='value-wrapper'>
                             <div className='input-container'>
                                 <label htmlFor="name">Name:</label>
-                                <input id='name' name='name' ></input> 
+                                <input id='name' required name='name' ></input> 
                             </div>
                             <div className='input-container'>
                                 <label htmlFor="addr">Location:</label>
-                                <input id='addr' name='addr'></input> 
+                                <input id='addr' required name='addr'></input> 
                             </div>
                             <div className='input-container'>
                                 <label htmlFor="mail">Email Address</label>
-                                <input id='mail' name='mail' ></input> 
+                                <input id='mail'  required name='mail' ></input> 
                             </div> 
                             <div className='input-container'>
                                 <label htmlFor="phone">Phone</label>
-                                <input id='phone' name='phone' ></input> 
+                                <input id='phone' required name='phone' ></input> 
                             </div>      
                             <div className='input-container'>
                                 <label htmlFor="linkedin">LinkedIn</label>
-                                <input id='linkedin' name='linkedin' ></input> 
+                                <input id='linkedin' required name='linkedin' ></input> 
                             </div>
                             <div className='input-container'>
                                 <label htmlFor="objective">Objective</label>
-                                <input id='objective' name='objective' ></input> 
+                                <input id='objective' required name='objective' ></input> 
                             </div>      
                         </div>
                         <div className='form-footer'><button className='btn-green' type='submit' name='submit' value={optionName}>Save</button></div>             
@@ -93,30 +93,30 @@ const ExpForm = ({optionId, optionName, setArrData, handleResume}) => {
             <div className='value-wrapper'>
                 <div className='input-container'>
                     <label htmlFor="roleName">Role:</label>
-                    <input id='roleName' name='roleName' ></input> 
+                    <input required id='roleName' name='roleName' ></input> 
                 </div>
                 <div className='input-container'>
                     <label htmlFor="companyName">Comapny:</label>
-                    <input id='companyName' name='companyName'></input> 
+                    <input required id='companyName' name='companyName'></input> 
                 </div>
                 <div className='input-container'>
                     <label htmlFor="location">Location</label>
-                    <input id='location' name='location' ></input> 
+                    <input required id='location' name='location' ></input> 
                 </div>     
                 <div className='input-container'>
                     <label htmlFor="startDate">Start Date</label>
-                    <input id='startDate' type='date' name='startDate' ></input> 
+                    <input required id='startDate' type='date' name='startDate' ></input> 
                 </div>
                 <div className='input-container'>
                     <label htmlFor="endDate">End Date</label>
-                    <input id='endDate' type='date' name='endDate' disabled={isPresent} ></input> 
+                    <input required id='endDate' type='date' name='endDate' disabled={isPresent} ></input> 
                 </div>
                 <div className='input-container'>
                     <label htmlFor="isPresent">Is Present?</label>
                     <input id='isPresent' checked={isPresent} type='checkbox' name='isPresent' onChange={handleIsPresent} ></input> 
                 </div>
                 <div className='input-container'>
-                    <label htmlFor="descArr">Description</label>
+                    <label htmlFor="descArr">Description (Seperate by new line)</label>
                     <textarea id='descArr'  name='descArr' ></textarea> 
                 </div>          
             </div>
@@ -182,31 +182,31 @@ const EduForm = ({optionId, optionName, setArrData, handleResume}) => {
             <div className='value-wrapper'>
                 <div className='input-container'>
                     <label htmlFor="eduName">Qualification:</label>
-                    <input id='eduName' name='eduName' ></input> 
+                    <input id='eduName' required name='eduName' ></input> 
                 </div>
                 <div className='input-container'>
                     <label htmlFor="clgName">College Name:</label>
-                    <input id='clgName' name='clgName'></input> 
+                    <input id='clgName' required name='clgName'></input> 
                 </div>
                 <div className='input-container'>
                     <label htmlFor="location">Location</label>
-                    <input id='location' name='location' ></input> 
+                    <input id='location' required name='location' ></input> 
                 </div> 
                 <div className='input-container'>
                     <label htmlFor="score">Score</label>
-                    <input id='score'  name='score' /> 
+                    <input id='score'   name='score' /> 
                 </div>      
                 <div className='input-container'>
                     <label htmlFor="startYear">Start Year</label>
-                    <input id='startYear' type='number' min='2000' max='3000' name='startYear' ></input> 
+                    <input id='startYear' required type='number' min='2000' max='3000' name='startYear' ></input> 
                 </div>
                 <div className='input-container'>
                     <label htmlFor="endYear">End Year</label>
-                    <input id='endYear' type='number' min='2000' max='3000' name='endYear' disabled={isPresent} ></input> 
+                    <input id='endYear' required type='number' min='2000' max='3000' name='endYear' disabled={isPresent} ></input> 
                 </div>
                 <div className='input-container'>
                     <label htmlFor="isPresent">Is Present?</label>
-                    <input id='isPresent' checked={isPresent} type='checkbox' name='isPresent' onChange={handleIsPresent} ></input> 
+                    <input id='isPresent' required checked={isPresent} type='checkbox' name='isPresent' onChange={handleIsPresent} ></input> 
                 </div>        
             </div>
             <div className='form-footer'><button className='btn-green' type='submit' name='submit' value={optionName}>Save</button></div>             
@@ -301,11 +301,11 @@ const ProjectForm = ({optionId, optionName, setArrData, handleResume}) => {
             <div className='value-wrapper'>
                 <div className='input-container'>
                     <label htmlFor="name">Project Name:</label>
-                    <input id='name' name='name' ></input> 
+                    <input id='name' required name='name' ></input> 
                 </div>
                 <div className='input-container'>
                     <label htmlFor="desc">Description:</label>
-                    <input id='desc' name='desc'></input> 
+                    <input id='desc' required name='desc'></input> 
                 </div>
                 <div className='input-container'>
                     <label htmlFor="link">Project Link</label>

@@ -17,6 +17,7 @@ export const processForm = ({e, type, handleResume, arrData, setArrData}) => {
         for (const elm of form ){
             if (elm.type === 'submit') continue
             if (elm.name === 'descArr') {
+                if (elm.value === '') continue
                 customExp[elm.name] = elm.value.split('\n')
                 continue
             }

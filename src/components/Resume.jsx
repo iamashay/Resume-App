@@ -63,12 +63,12 @@ function Resume ({resume}) {
                                             <Text>{exp.companyName}</Text>
                                         </View>
                                         <View style={styles.alignItemsRight}>
-                                            <Text>{`${formatDate(exp.startDate)} - ${exp.isPresent ? 'Present' : formatDate(exp.endDate)}`}</Text>
+                                            <Text>{`${formatDate(exp?.startDate)} - ${exp.isPresent ? 'Present' : formatDate(exp.endDate)}`}</Text>
                                             <Text>{exp.location}</Text>
                                         </View>
                                     </View>
                                     <View>
-                                        {exp.descArr.map((desc, index) => (
+                                        {exp?.descArr && exp.descArr.length && exp?.descArr.map((desc, index) => (
                                             <ListItem key={index}>
                                                 {desc}
                                             </ListItem>
@@ -113,7 +113,7 @@ function Resume ({resume}) {
                         <Text style={styles.heading}>Projects</Text>
                         <Line style={styles.line} />
                         <View style={styles.sectionBodyMargin}>
-                            {resume.projects.map((project) => (
+                            {resume?.projects.map((project) => (
                                 <View style={[ styles.arrItem]} key={project.id}>
                                     <Text style={styles.title}>{project.name+' : '} <Text style={{fontWeight: 0}}>{project.desc} {project.link && <Link style={styles.link} src={project.link}>Project Link</Link>}</Text>    </Text>
                                     
