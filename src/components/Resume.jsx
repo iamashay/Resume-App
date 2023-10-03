@@ -91,7 +91,7 @@ function Resume ({resume}) {
                                             <Text style={styles.title}>{edu.eduName}</Text>
                                             <Text>, {edu.clgName}</Text>
                                         </View>
-                                        <Text>{edu.startYear + '-' + edu.endYear}</Text>
+                                        <Text>{edu.startYear + '-' + (edu.isPresent ? 'Present' : edu.endYear)}</Text>
                                     </View>
                                     <Text>{edu.score}</Text>
                                 </View>

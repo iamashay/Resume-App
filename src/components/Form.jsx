@@ -197,12 +197,12 @@ const EduForm = ({optionId, optionName, setArrData, handleResume}) => {
                     <input id='score'  name='score' /> 
                 </div>      
                 <div className='input-container'>
-                    <label htmlFor="startDate">Start Date</label>
-                    <input id='startDate' type='number' min='2000' max='3000' name='startDate' ></input> 
+                    <label htmlFor="startYear">Start Year</label>
+                    <input id='startYear' type='number' min='2000' max='3000' name='startYear' ></input> 
                 </div>
                 <div className='input-container'>
-                    <label htmlFor="endDate">End Date</label>
-                    <input id='endDate' type='number' min='2000' max='3000' name='endDate' disabled={isPresent} ></input> 
+                    <label htmlFor="endYear">End Year</label>
+                    <input id='endYear' type='number' min='2000' max='3000' name='endYear' disabled={isPresent} ></input> 
                 </div>
                 <div className='input-container'>
                     <label htmlFor="isPresent">Is Present?</label>

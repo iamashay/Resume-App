@@ -11,7 +11,8 @@
 
     .hide-pdf {
         display: none;
-    }   
+    } 
+
     .option-container .input-container {
         width: 100%;
      }
@@ -38,6 +39,10 @@
         box-shadow: none;
     
     }
+
+    .hide-pdf {
+        display: none;
+    } 
     
 }
 
